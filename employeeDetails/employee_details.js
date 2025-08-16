@@ -1,5 +1,5 @@
 const employees = [
-    { id: 1, name: 'John Doe', age: 30, department: 'IT', salary: 50000 },
+    { id: 1, name: 'John Doe', age: 30, department: 'IT', specialized: 'JS', salary: 50000 },
     { id: 2, name: 'Alice Smith', age: 28, department: 'HR', salary: 45000 },
     { id: 3, name: 'Bob Johnson', age: 35, department: 'Finance', salary: 60000 },
     //... More employee records can be added here
@@ -29,4 +29,10 @@ function findEmployeeById(employeeId) {
     else{
       document.getElementById('employeesDetails').innerHTML = 'no employee has been found with this ID';
      }
+ }
+
+ function findEmployeeJS(){
+    const JSEmployees = employees.filter(employee => employee.specialized === 'JS');
+    const JSEmployeesDisplay = JSEmployees.map((employee, index) => `<p>${employee.id}: ${employee.name}: ${employee.name} - ${employee.department} - ${employee.salary} - ${employee.specialized}</p>`).join('');
+    document.getElementById('employeesDetails').innerHTML = JSEmployeesDisplay;
  }
